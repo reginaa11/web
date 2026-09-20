@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регина Симоненко — Портфолио</title>
     <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
 </head>
 <body>
-
 
 <header class="header">
     <div class="container header__inner">
         <a href="#hero" class="logo">Tavifa</a>
 
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-toggle-label" aria-label="Меню">
-            <span></span>
-        </label>
 
-        <nav class="nav">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav" id="mainNav">
             <ul class="nav__list">
                 <li><a href="#about" class="nav__link">О себе</a></li>
                 <li><a href="#skills" class="nav__link">Навыки</a></li>
@@ -38,7 +43,7 @@
                 <p class="hero__greeting">Привет, я</p>
                 <h1 class="hero__title">Регина Симоненко</h1>
                 <p class="hero__subtitle">Студентка 3 курса КемГУ · Frontend-разработчица</p>
-                <a href="#contacts" class="btn">Связаться со мной</a>
+                <button type="button" class="btn" id="openContactModal">Связаться со мной</button>
             </div>
             <div class="hero__image">
                 <img src="images/avatar.jpg" alt="Фото Регины" class="avatar">
@@ -47,7 +52,7 @@
     </section>
 
 
-    <section id="about" class="section about">
+    <section id="about" class="section about fade-in-section">
         <div class="container">
             <h2 class="section__title">О себе</h2>
             <div class="about__content">
@@ -72,158 +77,44 @@
     </section>
 
 
-    <section id="skills" class="section skills">
+    <section id="skills" class="section skills fade-in-section">
         <div class="container">
             <h2 class="section__title">Навыки</h2>
-            <div class="skills__grid">
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">HTML</span>
-                        <span class="skill-card__percent">85%</span>
+
+            <div class="carousel">
+                <button type="button" class="carousel__btn carousel__btn--prev" id="skillPrev" aria-label="Назад">‹</button>
+
+                <div class="carousel__viewport">
+                    <div class="carousel__track" id="skillTrack">
                     </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:85%"></div></div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">CSS</span>
-                        <span class="skill-card__percent">80%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:80%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">Figma</span>
-                        <span class="skill-card__percent">75%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:75%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">Git</span>
-                        <span class="skill-card__percent">70%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:70%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">Linux</span>
-                        <span class="skill-card__percent">65%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:65%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">MongoDB</span>
-                        <span class="skill-card__percent">60%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:60%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card__head">
-                        <span class="skill-card__name">JavaScript</span>
-                        <span class="skill-card__percent">50%</span>
-                    </div>
-                    <div class="skill-card__bar"><div class="skill-card__fill" style="width:50%"></div></div>
-                </div>
+
+                <button type="button" class="carousel__btn carousel__btn--next" id="skillNext" aria-label="Вперёд">›</button>
             </div>
+
+            <div class="carousel__dots" id="skillDots"></div>
         </div>
     </section>
 
 
-    <section id="portfolio" class="section portfolio">
+    <section id="portfolio" class="section portfolio fade-in-section">
         <div class="container">
             <h2 class="section__title">Портфолио</h2>
 
-
             <h3 class="portfolio__subtitle">🎨 Дизайн-макеты в Figma</h3>
-            <div class="portfolio__grid">
-
-                <article class="portfolio-card">
-                    <img src="images/work1.png" alt="Главная страница сайта" class="portfolio-card__img">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">UI/UX</span>
-                        <h3 class="portfolio-card__title">Главная страница</h3>
-                        <p class="portfolio-card__text">
-                            Макет главной страницы библиотеки: подборки книг,
-                            навигация и баннер-акцент.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="images/work4.png" alt="Главная страница — вариант 2" class="portfolio-card__img">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">UI/UX</span>
-                        <h3 class="portfolio-card__title">Главная — альтернатива</h3>
-                        <p class="portfolio-card__text">
-                            Второй вариант главной: карточки новинок и
-                            адаптивная сетка каталога книг.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="images/work2.png" alt="Страница входа" class="portfolio-card__img">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">UI</span>
-                        <h3 class="portfolio-card__title">Вход в личный кабинет</h3>
-                        <p class="portfolio-card__text">
-                            Экран авторизации с формой и понятной структурой
-                            полей для быстрого входа.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="images/work3.png" alt="Страница регистрации" class="portfolio-card__img">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">UI</span>
-                        <h3 class="portfolio-card__title">Регистрация</h3>
-                        <p class="portfolio-card__text">
-                            Форма регистрации пользователя с продуманной
-                            иерархией полей и валидацией.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <img src="images/work5.png" alt="Логотип ADR" class="portfolio-card__img portfolio-card__img--logo">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">Branding</span>
-                        <h3 class="portfolio-card__title">Логотип проекта</h3>
-                        <p class="portfolio-card__text">
-                            Авторский логотип ADR, разработанный в Figma
-                            для оформления бренда проекта.
-                        </p>
-                    </div>
-                </article>
-
+            <div class="portfolio__grid" id="portfolioFigma">
+                <!-- Карточки рендерятся из portfolio.json -->
             </div>
-
 
             <h3 class="portfolio__subtitle">💻 Веб-приложения</h3>
-            <div class="portfolio__grid portfolio__grid--apps">
-
-                <article class="portfolio-card portfolio-card--wide">
-                    <img src="images/work6.png" alt="Онлайн-чат с MongoDB" class="portfolio-card__img">
-                    <div class="portfolio-card__body">
-                        <span class="portfolio-card__tag">Full-stack</span>
-                        <h3 class="portfolio-card__title">Онлайн-чат</h3>
-                        <p class="portfolio-card__text">
-                            Веб-приложение чата с общими и личными комнатами.
-                            Backend работает с базой данных MongoDB, реализованы
-                            роли (администратор и пользователи), поиск по
-                            сообщениям и список активных чатов. Интерфейс — на HTML/CSS.
-                        </p>
-                    </div>
-                </article>
+            <div class="portfolio__grid portfolio__grid--apps" id="portfolioApps">
 
             </div>
-
         </div>
     </section>
 
-    <section id="contacts" class="section contacts">
+
+    <section id="contacts" class="section contacts fade-in-section">
         <div class="container">
             <h2 class="section__title">Контакты</h2>
             <ul class="contacts__list">
@@ -248,10 +139,15 @@
                     <a href="https://github.com/reginaa11" target="_blank" rel="noopener" class="contacts__link">reginaa11</a>
                 </li>
             </ul>
+
+            <div class="contacts__cta">
+                <button type="button" class="btn" id="openContactModalBottom">Написать мне</button>
+            </div>
         </div>
     </section>
 
 </main>
+
 
 <footer class="footer">
     <div class="container footer__inner">
@@ -265,5 +161,42 @@
     </div>
 </footer>
 
+<button type="button" class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+<div class="modal" id="contactModal">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" class="modal__close" data-close-modal aria-label="Закрыть">×</button>
+
+        <h3 class="modal__title" id="modalTitle">Связаться со мной</h3>
+        <p class="modal__subtitle">Заполните форму — я отвечу в ближайшее время</p>
+
+        <form class="form" id="contactForm" novalidate>
+            <div class="form__group">
+                <label for="name" class="form__label">Имя *</label>
+                <input type="text" id="name" name="name" class="form__input" placeholder="Как вас зовут?">
+                <span class="form__error" data-error-for="name"></span>
+            </div>
+
+            <div class="form__group">
+                <label for="email" class="form__label">Email *</label>
+                <input type="email" id="email" name="email" class="form__input" placeholder="example@mail.com">
+                <span class="form__error" data-error-for="email"></span>
+            </div>
+
+            <div class="form__group">
+                <label for="message" class="form__label">Сообщение *</label>
+                <textarea id="message" name="message" class="form__input form__textarea" placeholder="Ваше сообщение..."></textarea>
+                <span class="form__error" data-error-for="message"></span>
+            </div>
+
+            <button type="submit" class="btn btn--full" id="submitBtn">Отправить</button>
+
+            <p class="form__status" id="formStatus"></p>
+        </form>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>

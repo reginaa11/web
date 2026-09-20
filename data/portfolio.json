@@ -1,0 +1,50 @@
+[
+  {
+    "category": "figma",
+    "type": "screenshot",
+    "tag": "UI/UX",
+    "title": "Главная страница",
+    "description": "Макет главной страницы библиотеки: подборки книг, навигация и баннер-акцент.",
+    "image": "images/work1.png"
+  },
+  {
+    "category": "figma",
+    "type": "screenshot",
+    "tag": "UI/UX",
+    "title": "Главная — альтернатива",
+    "description": "Второй вариант главной: карточки новинок и адаптивная сетка каталога книг.",
+    "image": "images/work4.png"
+  },
+  {
+    "category": "figma",
+    "type": "screenshot",
+    "tag": "UI",
+    "title": "Вход в личный кабинет",
+    "description": "Экран авторизации с формой и понятной структурой полей для быстрого входа.",
+    "image": "images/work2.png"
+  },
+  {
+    "category": "figma",
+    "type": "screenshot",
+    "tag": "UI",
+    "title": "Регистрация",
+    "description": "Форма регистрации пользователя с продуманной иерархией полей и валидацией.",
+    "image": "images/work3.png"
+  },
+  {
+    "category": "figma",
+    "type": "logo",
+    "tag": "Branding",
+    "title": "Логотип проекта",
+    "description": "Авторский логотип ADR, разработанный в Figma для оформления бренда проекта.",
+    "image": "images/work5.png"
+  },
+  {
+    "category": "app",
+    "type": "screenshot",
+    "tag": "Full-stack",
+    "title": "Онлайн-чат",
+    "description": "Веб-приложение чата с общими и личными комнатами. Backend работает с базой данных MongoDB, реализованы роли, поиск по сообщениям и список активных чатов.",
+    "image": "images/work6.png"
+  }
+]
