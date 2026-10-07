@@ -1,0 +1,47 @@
+$font-family-base: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$font-size-base: 16px;
+
+$container-width: 1140px;
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 24px;
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.25s ease;
+$transition-slow: 0.5s ease;
+
+$shadow-sm: 0 4px 12px rgba(179, 157, 219, 0.15);
+$shadow-md: 0 6px 24px rgba(179, 157, 219, 0.15);
+$shadow-lg: 0 14px 32px rgba(179, 157, 219, 0.3);
+
+$breakpoints: (
+  "mobile": 480px,
+  "tablet": 768px,
+  "desktop": 1024px,
+);
+
+$theme-light: (
+  "bg": #fdfbff,
+  "surface": #ffffff,
+  "text": #2e2a35,
+  "muted": #7a7385,
+  "accent": #b39ddb,
+  "accent-2": #f8bbd0,
+  "accent-3": #b2dfdb,
+  "border": #ece6f5,
+  "footer-bg": #f4effb,
+  "shadow-color": rgba(179, 157, 219, 0.15),
+);
+
+$theme-dark: (
+  "bg": #1a1720,
+  "surface": #252130,
+  "text": #e8e3f0,
+  "muted": #a89fb8,
+  "accent": #b39ddb,
+  "accent-2": #f8bbd0,
+  "accent-3": #b2dfdb,
+  "border": #3a3345,
+  "footer-bg": #1f1b28,
+  "shadow-color": rgba(0, 0, 0, 0.4),
+);
