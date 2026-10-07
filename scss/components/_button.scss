@@ -1,0 +1,86 @@
+@use "../utils" as *;
+
+// Кнопка (компонент с состояниями и модификаторами)
+
+.button {
+  display: inline-block;
+  padding: rem(12px) rem(28px);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: rem(16px);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px var(--color-shadow-color);
+  transition:
+    transform $transition-base,
+    box-shadow $transition-base,
+    opacity $transition-base;
+
+  // Состояния
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(179, 157, 219, 0.55);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--color-shadow-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  // Модификатор: на всю ширину
+  &--block {
+    width: 100%;
+  }
+
+  // --- Модификатор: маленькая ---
+  &--small {
+    padding: rem(8px) rem(18px);
+    font-size: rem(14px);
+  }
+
+  // Модификатор: второстепенная (прозрачная)
+  &--ghost {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+    box-shadow: none;
+
+    &:hover {
+      background: var(--color-accent);
+      color: #fff;
+    }
+  }
+
+  // Модификатор: иконка-круглая (для переключателя темы)
+  &--icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    @include flex-center;
+    font-size: rem(18px);
+    background: var(--color-surface);
+    color: var(--color-text);
+    box-shadow: 0 2px 8px var(--color-shadow-color);
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px var(--color-shadow-color);
+    }
+  }
+}

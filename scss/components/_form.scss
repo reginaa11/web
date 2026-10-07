@@ -1,0 +1,64 @@
+@use "../utils" as *;
+
+// Форма
+
+.form__group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: rem(15px);
+}
+
+.form__input {
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: $radius-sm;
+  font-family: inherit;
+  font-size: rem(15px);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(179, 157, 219, 0.2);
+  }
+
+  &.is-invalid {
+    border-color: #e57373;
+    box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.15);
+  }
+}
+
+.form__textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form__error {
+  color: #c62828;
+  font-size: rem(13px);
+  margin-top: 4px;
+  min-height: 14px;
+}
+
+.form__status {
+  margin-top: 14px;
+  font-size: rem(14px);
+  text-align: center;
+  min-height: 18px;
+
+  &.is-success {
+    color: #2e7d32;
+  }
+
+  &.is-error {
+    color: #c62828;
+  }
+}
