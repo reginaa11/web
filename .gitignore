@@ -12,3 +12,9 @@ Thumbs.db
 # Логи и временные файлы
 *.log
 *.tmp
+
+# Node.js
+node_modules/
+
+# Сборка Sass
+dist/
