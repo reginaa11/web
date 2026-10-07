@@ -1,0 +1,187 @@
+@use "../utils" as *;
+
+// Header
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253, 251, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  transition: background $transition-base, border-color $transition-base;
+
+  [data-theme="dark"] & {
+    background: rgba(26, 23, 32, 0.9);
+  }
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+
+  @include respond-to("tablet") {
+    height: 72px;
+  }
+}
+
+.logo {
+  font-size: rem(24px);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+
+  @include respond-to("tablet") {
+    font-size: rem(26px);
+  }
+}
+// Навигация
+
+.nav {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  @include respond-to("tablet") {
+    position: static;
+    width: auto;
+    background: transparent;
+    border-bottom: none;
+    display: block;
+  }
+}
+
+.nav__list {
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 20px;
+
+  @include respond-to("tablet") {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 0;
+  }
+}
+
+.nav__list-item {
+  border-bottom: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include respond-to("tablet") {
+    border-bottom: none;
+  }
+}
+
+.nav__link {
+  display: block;
+  padding: 14px 0;
+  font-weight: 500;
+  position: relative;
+  transition: color $transition-base;
+
+  @include respond-to("tablet") {
+    padding: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+    transition: width $transition-base;
+  }
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &.is-active {
+    color: var(--color-accent);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// Бургер-кнопка
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  @include respond-to("tablet") {
+    display: none;
+  }
+}
+
+.menu-toggle__line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--color-accent);
+  transition: transform $transition-base, opacity $transition-base;
+}
+
+.menu-toggle.is-active {
+  .menu-toggle__line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle__line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+// Переключатель темы
+
+.theme-toggle {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 1.1rem;
+  transition: transform $transition-base, background $transition-base;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}

@@ -1,0 +1,104 @@
+@use "../utils" as *;
+
+// Hero
+
+.hero {
+  padding: 50px 0 40px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(248, 187, 208, 0.25), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(178, 223, 219, 0.25), transparent 40%);
+
+  @include respond-to("tablet") {
+    padding: 70px 0 60px;
+  }
+
+  @include respond-to("desktop") {
+    padding: 90px 0 70px;
+  }
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  gap: 28px;
+
+  @include respond-to("tablet") {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 32px;
+  }
+
+  @include respond-to("desktop") {
+    gap: 48px;
+  }
+}
+
+.hero__text {
+  @include respond-to("tablet") {
+    flex: 1 1 55%;
+  }
+}
+
+.hero__greeting {
+  color: var(--color-muted);
+  font-size: rem(17px);
+  margin-bottom: 8px;
+}
+
+.hero__title {
+  font-size: rem(30px);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--color-text), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @include respond-to("tablet") {
+    font-size: rem(38px);
+  }
+
+  @include respond-to("desktop") {
+    font-size: rem(48px);
+  }
+}
+
+.hero__subtitle {
+  color: var(--color-muted);
+  font-size: rem(16px);
+  margin-bottom: 28px;
+
+  @include respond-to("tablet") {
+    font-size: rem(18px);
+  }
+}
+
+.hero__image {
+  @include flex-center;
+
+  @include respond-to("tablet") {
+    flex: 0 0 280px;
+  }
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--color-surface);
+  box-shadow: var(--color-shadow-color) 0 0 0 8px, 0 6px 24px var(--color-shadow-color);
+
+  @include respond-to("tablet") {
+    width: 220px;
+    height: 220px;
+  }
+
+  @include respond-to("desktop") {
+    width: 260px;
+    height: 260px;
+  }
+}

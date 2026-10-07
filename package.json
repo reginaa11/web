@@ -1,0 +1,12 @@
+{
+  "name": "web1",
+  "version": "1.0.0",
+  "description": "Портфолио-визитка студентки 3 курса КемГУ на HTML/CSS/Sass/jQuery",
+  "scripts": {
+    "sass:dev": "sass --watch scss/main.scss:dist/css/main.css",
+    "build": "sass --no-source-map --style=compressed scss/main.scss:dist/css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.105.1"
+  }
+}

@@ -1,0 +1,45 @@
+@use "../utils" as *;
+
+// Карточка навыка (со прогресс-баром)
+
+.skill-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  padding: 22px 24px;
+  box-shadow: 0 6px 24px var(--color-shadow-color);
+  transition: transform $transition-base, background $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.skill-card__head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.skill-card__name {
+  color: var(--color-text);
+}
+
+.skill-card__percent {
+  color: var(--color-accent);
+}
+
+.skill-card__bar {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skill-card__fill {
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  transition: width 0.6s ease;
+}
