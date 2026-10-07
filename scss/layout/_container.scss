@@ -1,0 +1,53 @@
+@use "../utils" as *;
+
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Общие стили секций
+.section {
+  padding: 54px 0;
+
+  @include respond-to("tablet") {
+    padding: 70px 0;
+  }
+
+  @include respond-to("desktop") {
+    padding: 80px 0;
+  }
+}
+
+.section__title {
+  font-size: rem(26px);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include respond-to("tablet") {
+    font-size: rem(30px);
+    margin-bottom: 36px;
+  }
+
+  @include respond-to("desktop") {
+    font-size: rem(32px);
+    margin-bottom: 40px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  }
+}
